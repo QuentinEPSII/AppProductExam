@@ -1,0 +1,8 @@
+<h3 class="mt-3 ml-3" *ngIf="isReady">Voici les {{productsListCount}} produits ! </h3>
+<h3 class="mt-3 ml-3" *ngIf="!isReady">Chargement des données en cours, veuillez patientez</h3>
+
+<div class="list-group mt-5">
+  <a class="list-group-item list-group-item-action w-50 p-3 d-flex justify-content-center mx-auto" *ngFor="let pr of myProductList$ | async" (click)="onSelectionChange(pr)" [class.selected]="isSelected(pr)"> {{ pr.getName() }} </a>
+</div>
+
+

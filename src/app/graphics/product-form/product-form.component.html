@@ -1,0 +1,32 @@
+<div class="border w-50 p-3" style="margin-left:25%; margin-right:25%;">
+<form [formGroup]="ProductForm" (ngSubmit)="submit()">
+	<label>
+		Nom du produit:
+		<input class="mx-sm-3 mb-2" type="text" placeholder="Nom" formControlName="name" />
+		<span *ngIf="shouldShowRequiredError(ProductForm.controls.name)">Le nom est requis</span>
+	</label>
+	<br/>
+	<label>
+		Texture du produit:
+		<input class="mx-sm-3 mb-2" type="text" placeholder="Texture" formControlName="texture" />
+	</label>
+	<br/>
+	<label>
+		Grammage du produit:
+		<input class="mx-sm-3 mb-2" type="text" placeholder="Grammage" formControlName="grammage" />
+		<span *ngIf="shouldShowRequiredError(ProductForm.controls.grammage)">Le grammage est requis</span>
+	</label>
+	<br/>
+	<label>
+		Couleur du produit:
+		<input class="mx-sm-3 mb-2" type="text" placeholder="Couleur" formControlName="color" />
+		<span *ngIf="shouldShowRequiredError(ProductForm.controls.color)">La couleur est requise</span>
+	</label>
+	<div class="mt-n5">
+		<button class="btn btn-dark text-center float-right" type="submit" [disabled]="!ProductForm.valid">Valider</button>
+		<button class="btn btn-dark text-center float-right mr-3" (click)="onCancel()">Annuler</button>
+	</div>
+	<br/> 
+	<br/>
+</form>
+</div>

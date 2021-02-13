@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "name": "Tesla",
+    "texture": "Metalisé",
+    "grammage":"Aucune fichtre idée",
+    "color":"Gris"
+  }
+  ,
+  {
+    "id": 2,
+    "name": "Rose",
+    "texture": "Délicate",
+    "grammage":"Léger",
+    "color":"Rouge"
+  }
+  , 
+  {
+    "id": 3,
+    "name": "Samsung S10+",
+    "texture": "Texturé",
+    "grammage":"Grammage",
+    "color":"Blanc"
+  }
+]

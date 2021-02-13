@@ -1,0 +1,13 @@
+
+<app-product-list (selectionChanged)="onSelectionChanged($event)" [canChangeSelection]="!isEditing"></app-product-list>
+
+<div class="row mt-3">
+    <div class="col">
+        <button class="btn btn-dark text-center" style="margin-left:25%;" (click)="onUpdate()">Modifier</button>
+        <button class="btn btn-dark text-center" style="margin-left:37.5em;" (click)="onAdd()">Ajouter</button>       
+    </div>
+  </div>
+
+<br/>
+<app-product-detail [selectedProduct]="selectedProduct" *ngIf="!isEditing"></app-product-detail> 
+<app-product-form [Product]="selectedProduct" (done)="formDone()" *ngIf="isEditing"></app-product-form>
