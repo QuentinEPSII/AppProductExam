@@ -10,7 +10,8 @@ export class ProductDetailComponent implements OnInit {
 
   @Input() public selectedProduct: Product;
   
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }

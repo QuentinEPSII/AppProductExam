@@ -20,6 +20,6 @@ export class ProductPageDetailComponent implements OnInit {
   ngOnInit(): void {
 
     this.id = parseInt(this.r.snapshot.paramMap.get('id'));
-    this.product = this.ProductService.getById(this.id)
+    this.product = this.ProductService.getProductById(1)
   }
 }

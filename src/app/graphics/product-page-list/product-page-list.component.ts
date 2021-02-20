@@ -24,18 +24,17 @@ export class ProductPageListComponent implements OnInit {
   */
 
   myProductList$: Observable<Product[]>;
-  myProduct: Product[];
-  myStrings : string[] = ['to'];
   productsListCount: number;
 
-  constructor(private _tProductService:ProductService) { }
+  constructor(private _ProductService:ProductService) {
+    // Pour supprimer l'erreur "has no initializer and is not definitely assigned"
+    this.myProductList$ = new Observable();
+    this.productsListCount = 0;
+  }
+
 
   ngOnInit(): void {
-    // récupération de la liste des joueurs
-    console.log('avant le subscribe');
-
-
-    this.myProductList$ = this._tProductService.getAllProduct()
+    this.myProductList$ = this._ProductService.getAllProduct()
     .pipe(
       tap((data)=>{
         this.isReady = true;
@@ -43,40 +42,26 @@ export class ProductPageListComponent implements OnInit {
         if (data.length)
         this.selectProduct(data[0])
       }));
-      console.log('après le subscribe');
     }
 
-    /**
-    * permet d'obtenir le joueur sélectionné
-    */
     getSelectedProduct(){
-      return this._tProductService.selectedProduct;
+      return this._ProductService.selectedProduct;
     }
 
-    /**
-    * Permet la selection du joueur
-    * @param pl : joueur à sélectionner
-    */
-    public selectProduct(pl: Product) {
-      this._tProductService.selectProduct(pl);
-      this.selectionChanged.emit(pl);
+    public selectProduct(prod: Product) {
+      this._ProductService.selectProduct(prod);
+      this.selectionChanged.emit(prod);
     }
 
-    /**
-    * Sélection par l'interface, possible uniquement si on peut changer la sélection
-    */
-    onSelectionChange(pl:Product){
+    onSelectionChange(prod:Product){
       if (this.canChangeSelection)
       {
-        this.selectProduct(pl);
+        this.selectProduct(prod);
       }
     }
-    /**
-    * Indique si le joueur donné est sélectionné ou non
-    * @param pl
-    */
-    isSelected(pl: Product){
-      return  pl == this._tProductService.selectedProduct;
+
+    isSelected(prod: Product){
+      return  prod == this._ProductService.selectedProduct;
     }
 
   }

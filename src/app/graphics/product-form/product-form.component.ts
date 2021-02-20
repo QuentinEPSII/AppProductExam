@@ -3,16 +3,16 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 
 import { Product } from 'src/app/Model/product';
 import { ProductService } from 'src/app/services/product.service';
+import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss']
 })
+
 export class ProductFormComponent implements OnInit {
-
-
-
+  
   @Output() done = new EventEmitter();
 
 
@@ -26,9 +26,9 @@ export class ProductFormComponent implements OnInit {
     return this._Product;
   }
 
-
-  constructor(private fb: FormBuilder, private _tProductService: ProductService) {
-
+  constructor(private fb: FormBuilder, private _ProductService: ProductService) {
+    // Pour supprimer l'erreur "has no initializer and is not definitely assigned"
+    this._Product = new Product;
   }
 
   ProductForm = this.fb.group({
@@ -41,18 +41,17 @@ export class ProductFormComponent implements OnInit {
   })
 
   ngOnInit(): void {
-
   }
+
   onCancel(){
     this.done.emit();
   }
   submit(): void {
       this.Product =  new Product(this.ProductForm.value);
-      this._tProductService.UpdateProduct(this.Product);
-      this._tProductService.selectProduct(this.Product);
+      this._ProductService.UpdateProduct(this.Product);
+      this._ProductService.selectProduct(this.Product);
       this.done.emit();
   }
-
 
   shouldShowRequiredError(control: AbstractControl){
     return !control.pristine && control.hasError('required');
@@ -61,9 +60,4 @@ export class ProductFormComponent implements OnInit {
   shouldShowError(control: AbstractControl){
     return !control.pristine && control.invalid;
   }
-
-  getNom(){
-    return this._tProductService.nom;
-  }
-
 }

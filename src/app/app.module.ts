@@ -10,9 +10,10 @@ import { ProductDetailComponent } from './graphics/product-detail/product-detail
 import { ProductListComponent } from './graphics/product-list/product-list.component';
 import { ProductPageListComponent } from './graphics/product-page-list/product-page-list.component';
 import { AppRoutingModule } from './app-routing.module';
-import { BonjourComponent } from './graphics/bonjour/bonjour.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductPageDetailComponent } from './graphics/product-page-detail/product-page-detail.component';
+import { HomepageComponent } from './graphics/homepage/homepage.component';
+
 
 @NgModule({
   declarations: [
@@ -21,10 +22,10 @@ import { ProductPageDetailComponent } from './graphics/product-page-detail/produ
     ProductFormComponent,
     ProductDetailComponent,
     ProductListComponent,
-    ProductPageListComponent,    
-    BonjourComponent,
     ProductPageListComponent,
-    ProductPageDetailComponent
+    ProductPageListComponent,
+    ProductPageDetailComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
