@@ -10,18 +10,11 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-page-list.component.scss']
 })
 export class ProductPageListComponent implements OnInit {
-  /**
-  * Envoi un événement à chaque  modification de la sélection
-  */
-  @Output() selectionChanged = new EventEmitter<Product>();
 
+  @Output() selectionChanged = new EventEmitter<Product>();
   @Input() canChangeSelection=true;
 
-
   isReady = false;
-  /**
-  * liste des joueurs
-  */
 
   myProductList$: Observable<Product[]>;
   productsListCount: number;
@@ -31,7 +24,6 @@ export class ProductPageListComponent implements OnInit {
     this.myProductList$ = new Observable();
     this.productsListCount = 0;
   }
-
 
   ngOnInit(): void {
     this.myProductList$ = this._ProductService.getAllProduct()
@@ -63,6 +55,5 @@ export class ProductPageListComponent implements OnInit {
     isSelected(prod: Product){
       return  prod == this._ProductService.selectedProduct;
     }
-
   }
 

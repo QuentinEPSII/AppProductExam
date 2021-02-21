@@ -38,14 +38,13 @@ export class ProductService {
   public getProductById(idd : number){
     return this.getAllProduct$.pipe(
       map((data : Product[])=>{
-        const result: Product = new Product;
-        var test = new Product;
+        var prod = new Product;
         data.forEach(element => {
           if (element.id = idd) {
-            test = element;
+            prod = element;
           }
         });
-        return result;
+        return prod;
       })
     );
   }

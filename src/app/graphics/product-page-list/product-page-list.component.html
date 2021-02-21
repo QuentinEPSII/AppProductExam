@@ -6,13 +6,3 @@
   routerLink="/ProductsDetail/{{ pr.id }}" *ngFor="let pr of myProductList$ | async" 
   (click)="onSelectionChange(pr)" [class.selected]="isSelected(pr)"> {{ pr.getName() }} </a>
 </div>
-
-<!--
-name="";
-ngOnInit(): void {
-
-  this._r.paramMap.subscribe((v)=>{
-    this.name= v.get('id');
-  });
-}
--->

@@ -2,8 +2,6 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/Model/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-page-detail',
@@ -20,6 +18,6 @@ export class ProductPageDetailComponent implements OnInit {
   ngOnInit(): void {
 
     this.id = parseInt(this.r.snapshot.paramMap.get('id'));
-    this.product = this.ProductService.getProductById(1)
+    this.product = this.ProductService.getProductById(this.id)
   }
 }
